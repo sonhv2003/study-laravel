@@ -1,27 +1,21 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Laravel Page</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Trang chủ</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ví dụ <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/first-blade-example">Ví dụ Blade 1</a></li>
-                        <li><a href="/second-blade-example">Ví dụ Blade 2</a></li>
-                    </ul>
-                </li>
-                <li><a href="/articles">Tin tức</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Laravel page</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/articles">Tin tức</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/images">Hình ảnh</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

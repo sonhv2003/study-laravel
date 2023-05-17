@@ -31,6 +31,6 @@ class ImagesTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ];
-        DB::table('image')->insert($images);
+        DB::table('images')->insert($images);
     }
 }
