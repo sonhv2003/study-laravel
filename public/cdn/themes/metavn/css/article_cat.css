@@ -1,0 +1,204 @@
+.breadcrumbs {margin-bottom: 20px}
+.col_sub .box:first-child {
+    margin: 0;
+}
+.search_result {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+}
+.h1 {
+    display: block;
+    font-weight: bold;
+    background: #fff;
+    padding: 10px;
+    border-left:3px solid var(--c-main);
+    font-size: 18px;
+    text-transform: uppercase
+}
+
+.pagination{padding:15px 0 10px;font-size:14px;font-weight:bold;text-align:center;clear:both;display: block}
+.pagination a{color:var(--c-contrast-650);margin-left:3px;padding:4px 9px;background-color:#fff;border:1px solid var(--c-contrast-100);border-radius:3px}
+.pagination a:hover{color:#666;text-decoration:none;background-color:#ddd;border-color:#999}
+.pagination a.current{color:#fff;background-color:var(--c-main);border-color:var(--c-main)}
+.pagination span{padding:5px 10px}
+.pagination .total{color:#ccc}
+
+.empty {
+    padding: 30px 0;
+    min-height: 300px;
+    text-align: center
+}
+
+/* article list */
+.cat_articles .hd{
+    border-bottom: 2px solid var(--c-main);
+}
+.cat_articles .hd>.box_title {
+    background: var(--c-main);
+    color: #fff
+}
+.cat_articles .hd>.extra a{
+    color: var(--c-contrast-900)
+}
+
+.loop-post {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.loop-post:last-child{border-bottom: none}
+.loop-post .media{
+    max-width: 40%;
+    width: 40%;
+    margin-right: 18px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.loop-post .content{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.loop-post img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    
+}
+.loop-post .post-title{
+    font-size: var(--title-size-m);
+    line-height: 1.36;
+    font-weight: bold;
+}
+.loop-post .post-title a{
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+}
+.loop-post a{display: block}
+.loop-post a:hover{color: var(--c-main)}
+.loop-post .desc {line-height:1.36;color: var(--c-contrast-600)}
+
+.loop-post .timepost {
+    display: block;
+    overflow: hidden;
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0
+   
+}
+.loop-post .timepost em{font-style: normal;font-weight: bold;color: var(--c-main)}
+
+
+/*fix cat_articles col_sub*/
+.col_sub .cat_articles .loop-post{
+    width: 100%;
+    margin: 0;
+}
+.col_sub .cat_articles .hd {
+   background: #080808;
+   padding: 2px 10px;
+   border-bottom: none;
+}
+.col_sub .cat_articles .hd>.extra a{color: #fff}
+.col_sub .cat_articles .hd>.box_title{
+    background: none
+}
+
+.col_sub .media {
+    display: block;
+    width: 110px;
+    max-width: 40%;
+    margin-right: 18px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.col_sub .post-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.43;
+    font-weight: 400;
+    font-size: var(--title-size-xs);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: var(--c-headings);
+}
+.col_sub .post-title a{
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+.col_sub .post-title a:hover{
+    color: var(--c-main)
+}
+
+
+.col_sub .loop-post .desc, .col_sub .loop-post .author {display: none}
+
+
+.titlehome {
+    color: #333;
+    display: block;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    overflow: hidden;
+    padding: 10px 0 6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+/* xem nhiều */
+.summarycomment {
+    display: block;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.summarycomment .bd {
+    padding: 0 10px;
+}
+.summarycomment a {
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.summarycomment .summary_number {
+    background: var(--c-main);
+    color: #fff;
+    float: left;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 4px 10px 0 0;
+    padding: 6px 10px;
+}
+.summarycomment a h3 {
+    color: #333;
+    display: block;
+    font-size: 14px;
+    line-height: 1.3em;
+    overflow: hidden;
+    font-weight: normal;
+}
+.summarycomment a .morecom {
+    color: #b10000;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 300;
+    height: 16px;
+    line-height: 1;
+    margin-left: 3px;
+    position: relative;
+    top: 1px;
+    white-space: nowrap;
+}

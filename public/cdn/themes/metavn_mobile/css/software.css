@@ -1,0 +1,63 @@
+.wrap_soft {
+    padding: 10px;
+    background: #fafafa;
+}
+.titlehome, h2 {
+    color: #333;
+    display: block;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    overflow: hidden;
+    padding: 10px 0 6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+.software_list li {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    clear: both;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom:1px solid #ddd;
+}
+.software_list li>div {
+    float: left;
+    display: inline-block;
+}
+.software_list li .name{
+    width: auto
+}
+.software_list li .icon {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden
+}
+.software_list li .icon img {
+    width: 100%;
+    height: auto;
+}
+.software_list li h3 {
+    font-weight: bold;
+    padding: 5px 0;
+}
+.software_list li p {font-size: 12px;}
+.software_list li .link{
+    padding: 10px 0;
+    float: right;
+}
+.software_list li .link a{
+    color:#fff;
+    margin-right:10px;
+    background: #288ad6;
+    padding: 5px 8px;
+
+}
+
+@media screen and (max-width:480px) {
+
+}

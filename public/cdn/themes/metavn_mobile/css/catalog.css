@@ -1,0 +1,33 @@
+
+.navhome {
+    clear: both;
+    display: block;
+    background: #fff;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    margin: 10px    ;
+}
+.navhome li{
+    display: inline-block;
+    float: left;
+    width: 24.5%;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    padding: 8px;
+}
+.navhome li a{
+    display: block;
+    color:#333;
+    font-size: 12px;
+}
+.navhome li a img{margin-bottom: 6px;width: 100%;height: auto}

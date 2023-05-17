@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>{$lang.cp_home}{if $ur_here} - {$ur_here} {/if}</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width" />
+<meta name="copyright" content="Ecshopvietnam.com" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{$base_path}/styles/general_mobile.css" rel="stylesheet" type="text/css" />
+<link href="{$base_path}/styles/main_mobile.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$domain}/js/utils.js" rel="stylesheet" /></script>
+{literal}
+<style>
+  .panel-icloud .panel-right iframe {
+    height: 300px;
+    margin-top: 15px;
+  }
+  .panel-hint{
+    top: 0%;
+  }
+</style>
+{/literal}
+<script>
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+{foreach from=$lang.js_languages key=key item=item}
+var {$key} = "{$item}";
+{/foreach}
+//-->
+
+</script>
+</head>
+<body>
+<section>
+{include file="menu.htm"}
+
+<!--- actios -->
+<h1>
+  {if $action_link}
+  <a class="btn btn-right" href="{$action_link.href}">{$action_link.text}</a>
+  {/if}
+
+  {if $action_link2}
+  <a class="btn" href="{$action_link2.href}">{$action_link2.text}</a>&nbsp;&nbsp;
+  {/if}
+  <div class="breakcrumbs">
+    <span class="action-span1"><a href="index.php?act=main">{$lang.cp_home}</a> </span><span id="search_id" class="action-span1">{if $ur_here}&nbsp;&nbsp;>&nbsp;&nbsp;{$ur_here} {/if}</span>
+  </div>
+  <div style="clear:both"></div>
+</h1>

@@ -1,0 +1,85 @@
+<!-- $Id: category_price_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader_jquery.htm"}
+{insert_scripts files="build_slug.js"}
+<div class="main-div">
+<form method="post" action="category_price.php" name="theForm" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+    <tr>
+    <td class="label">Tên hiển thị</td>
+    <td><input type="text" size="60" name="name" value="{$category_price.name}" />{$lang.require_field}
+       <p class="notice-span">Ví dụ: Từ 1-2 triệu</p></td>
+  </tr>
+  <tr>
+    <td class="label">Slug</td>
+    <td><input type="text" size="60" name="slug" value="{$category_price.slug}" /> <input type="button" value="Tạo" class="button" onclick="build_slug('name')">{$lang.require_field}
+        <p class="notice-span">Ví dụ: 1-2-trieu</p></td>
+  </tr>
+    <tr>
+        <td class="label">Dùng cho danh mục:</td>
+        <td>
+          <select name="cat_id">
+            <option value="0">--Chọn--</option>
+            {$cat_select}
+          </select>
+          <p class="notice-span">Áp dụng lọc giá thân thiện cho danh mục này</p>
+        </td>
+      </tr>
+  <tr>
+    <td class="label">Khoảng giá</td>
+    <td><input type="text" name="price_min" value="{$category_price.price_min}" /> đến <input type="text" name="price_max" value="{$category_price.price_max}" />{$lang.require_field}
+        <p class="notice-span">Ví dụ: 1000000 - 2000000</p></td>
+  </tr>
+   <tr>
+    <td class="label">Sắp xếp</td>
+    <td><input type="text"  name="sort_order" value="{$category_price.sort_order}" /></td>
+  </tr>
+  <tr>
+    <td class="label">Meta Title</td>
+    <td><input type="text" size="60" name="meta_title" id="meta_title"  value="{$category_price.meta_title}" onkeyup="count_word('meta_title')"> <span id="count_meta_title">0</span> Kí tự.</td>
+  </tr>
+  <tr>
+    <td class="label">Meta Keywords</td>
+    <td><input type="text" size="60" name="meta_keywords" value="{$category_price.meta_keywords}" /></td>
+  </tr>
+   <tr>
+        <td class="label">Meta Description</td>
+        <td>
+            <textarea name='meta_desc' rows="4" cols="60" id="meta_desc" onkeyup="count_word('meta_desc')">{$category_price.meta_desc}</textarea> <span id="count_meta_desc">0</span> Kí tự.
+        </td>
+      </tr>
+
+</table>
+<table align="center">
+  <tr>
+    <td align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$category_price.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+    function validate()
+    {
+      validator = new Validator("theForm");
+      validator.required("name", 'Tên không thể để trống');
+      validator.required("slug", 'URL SEO thể để trống');
+      validator.required("price_min", 'Giá nhỏ nhất không thể để trống');
+      validator.required("price_max", 'Giá lớn nhất không thể để trống');
+      return validator.passed();
+    }
+
+</script>
+<script type="text/javascript">
+    function count_word(element){
+        var oj = $('#'+element).val();
+        $('#count_'+element).html(oj.length);
+    }
+</script>
+{/literal}
+{include file="pagefooter.htm"}

@@ -1,0 +1,206 @@
+.scrollmenu {
+    display: block;
+    background: transparent;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    -ms-scroll-snap-type: mandatory;
+    -ms-scroll-snap-points-x: snapInterval(0%,100%);
+    -ms-scroll-chaining: chained;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+.h1 {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-transform: uppercase
+}
+
+.article_categories {
+    display: block;
+    overflow: visible;
+    clear: both;
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.article_categories li {
+    display: inline-block;
+    margin-left: 5px;
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    position: relative;
+    padding: 7px 10px;
+}
+
+.article_categories li a {
+    color: #111;
+}
+.article_categories li.current a{color: var(--c-main);font-weight: bold}
+
+
+.cat_articles .hd{
+    border-bottom: 2px solid var(--c-main);
+}
+.cat_articles .hd>.box_title {
+    background: var(--c-main);
+    color: #fff;
+    font-weight: 500;
+    line-height: normal;
+}
+.cat_articles .hd>.extra a{
+    color: var(--c-contrast-900)
+}
+.post_list {
+    clear: both;
+    display: block;
+    background: #fff;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    padding: 0 10px;
+    margin: 0 0 20px 0;
+}
+.loop-post{
+    width: 100%;
+    margin: 10px 0;
+}
+.loop-post:nth-child(2n+2){margin-right: 0}
+
+
+.loop-post .media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.loop-post .post-title{
+    font-size: var(--title-size-m);
+    font-weight: bold;
+    line-height: 1.36;
+    color: var(--c-contrast-900);
+    margin: 10px 0
+}
+
+.loop-post .post-title a{
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+}
+
+.loop-post a{display: block}
+
+.loop-post img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    
+}
+
+.loop-post .timepost {
+    display: block;
+    overflow: hidden;
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0
+   
+}
+
+.loop-post .timepost em{font-style: normal;font-weight: bold;color: var(--c-main)}
+.loop-post .desc {color: var(--c-contrast-600)}
+.loop-post a:hover{color: var(--c-main)}
+.loop-post:last-child{border-bottom: none}
+
+
+
+/*ads*/
+.banner-full, .banner-full a{
+    display: block;
+}
+.banner-full, .banner-three {margin: 10px 0}
+.banner-full img{width: 100%;height: auto}
+
+
+
+.titlehome {
+    color: #333;
+    display: block;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    overflow: hidden;
+    padding: 10px 0 6px 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* xem nhiều */
+.summarycomment {
+    display: block;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.summarycomment .bd {
+    padding: 0 10px;
+}
+.summarycomment a {
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.summarycomment .summary_number {
+    background: var(--c-main);
+    color: #fff;
+    float: left;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 4px 10px 0 0;
+    padding: 6px 10px;
+}
+.summarycomment a h3 {
+    color: #333;
+    display: block;
+    font-size: 14px;
+    line-height: 1.3em;
+    overflow: hidden;
+    font-weight: normal;
+}
+.summarycomment a .morecom {
+    color: #b10000;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 300;
+    height: 16px;
+    line-height: 1;
+    margin-left: 3px;
+    position: relative;
+    top: 1px;
+    white-space: nowrap;
+}
+
+
+.pagination{padding:15px 0 10px;font-size:14px;font-weight:bold;text-align:center;clear:both;display: block}
+.pagination a{color:var(--c-contrast-650);margin-left:3px;padding:4px 9px;background-color:#fff;border:1px solid var(--c-contrast-100);border-radius:3px}
+.pagination a:hover{color:#666;text-decoration:none;background-color:#ddd;border-color:#999}
+.pagination a.current{color:#fff;background-color:var(--c-main);border-color:var(--c-main)}
+.pagination span{padding:5px 10px}
+.pagination .total{color:#ccc}

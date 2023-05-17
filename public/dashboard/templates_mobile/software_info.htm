@@ -1,0 +1,107 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader_ckeditor.htm"}
+<script type="text/javascript" src="../includes/ckfinder/ckfinder.js" rel="stylesheet" /></script>
+<div class="main-div">
+<form method="post" action="software.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+    <tr class="none">
+    <td class="label">Danh mục Phần mềm</td>
+    <td>
+        <select name="cat_id">
+            <option value="0">Danh mục gốc</option>
+        </select>
+    </td>
+    </tr>
+   <tr>
+    <td class="label">Tên Phần mềm</td>
+    <td>
+        <input size="60" type="text" name="software_name" value="{$software.software_name}"> *
+    </td>
+    </tr>
+    <tr>
+    <td class="label">Mô tả ngắn</td>
+    <td>
+        <input size="60" type="text" name="software_desc" value="{$software.software_desc}">
+    </td>
+    </tr>
+     <tr>
+    <td class="label">Link Hướng dẫn</td>
+    <td>
+        <input size="60" type="text" name="software_guide" value="{$software.software_guide}">
+    </td>
+    </tr>
+     <tr>
+    <td class="label">Link Tải</td>
+    <td>
+        <input size="60" type="text" name="software_download" value="{$software.software_download}">
+    </td>
+    </tr>
+  <tr>
+    <td class="label">Hình icon</td>
+    <td>
+        <input type="text" size="40" id="ckfinder-input-1" value="{$software.software_icon}" name="software_icon" /> <input type="button" id="ckfinder-popup-1" value="Chọn Ảnh" class="button" onclick="return selectFileWithCKFinder('ckfinder-input-1');">
+        <p>Up Logo size với chiều rộng 110px, cao tùy logo</p>
+        {if $software.software_icon}
+        <p><img src="{$software.software_icon}"></p>
+        {/if}
+    </td>
+  </tr>
+  <tr>
+     <td class="label">Nổi Bật</td>
+    <td>
+      <label><input type="radio" name="is_hot" value="1" {if $software.is_hot eq 1} checked="true"{/if}/> {$lang.yes}</label>
+      <label><input type="radio" name="is_hot" value="0" {if $software.is_hot eq 0} checked="true"{/if} /> {$lang.no}</label>
+    </td>
+  </tr>
+  <tr>
+     <td class="label">Vị trí</td>
+    <td>
+       <input type="text" name="sort" value="{$software.sort}" />
+    </td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$software.software_id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+
+{literal}
+<script language="JavaScript">
+<!--
+region.isAdmin = true;
+
+//-->
+
+function selectFileWithCKFinder( elementId ) {
+    CKFinder.popup( {
+        chooseFiles: true,
+        width: 930,
+        height: 500,
+        onInit: function( finder ) {
+            finder.on( 'files:choose', function( evt ) {
+                var file = evt.data.files.first();
+                var output = document.getElementById( elementId );
+                output.value = file.getUrl();
+            } );
+
+            finder.on( 'file:choose:resizedImage', function( evt ) {
+                var output = document.getElementById( elementId );
+                output.value = evt.data.resizedUrl;
+            } );
+        }
+    } );
+}
+
+</script>
+
+{/literal}
+{include file="pagefooter.htm"}

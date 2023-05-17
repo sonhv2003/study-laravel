@@ -1,0 +1,58 @@
+{include file="pageheader_jquery.htm"}
+<div class="main-div">
+  <form action="attribute_seo.php"  method="post" name="theForm">
+  <table width="100%" id="general-table">
+      <tr>
+        <td class="label">Đang Tạo</td>
+        <td>
+           Meta cho {$goods_attr.cat_name} > {$goods_attr.attr_name} > {$goods_attr.attr_value} [{$goods_attr.slug}]
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Meta Title</td>
+        <td>
+          <input type='text' name='meta_title' value="{$attr_meta.meta_title}" size='60' id="meta_title"  onkeyup="count_word('meta_title')"> <span id="count_meta_title">0</span> Kí tự.
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Meta Keywords</td>
+        <td>
+          <input type='text' name='meta_keywords' value="{$attr_meta.meta_keywords}" size='60' />
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Meta Description</td>
+        <td>
+            <textarea name='meta_desc' id="meta_desc" onkeyup="count_word('meta_desc')" rows="4" cols="60">{$attr_meta.meta_desc}</textarea> <span id="count_meta_desc">0</span> Kí tự.
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Meta Robot</td>
+        <td>
+            <label><input type="radio" name="meta_robot" value="INDEX,FOLLOW" {if $attr_meta.meta_robot eq 'INDEX,FOLLOW'}checked{/if}>Index,Follow</label>
+            <label><input type="radio" name="meta_robot" value="NOINDEX,FOLLOW" {if $attr_meta.meta_robot eq 'NOINDEX,FOLLOW'}checked{/if}>NoIndex,Follow</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+        <div class="button-div">
+            <input type="submit" value="{$lang.button_submit}" class="button"/>
+            <input type="reset" value="{$lang.button_reset}" class="button" />
+            <input type="hidden" name="act" value="{$form_act}" />
+            <input type="hidden" name="cat_id" value="{$goods_attr.cat_id}" />
+            <input type="hidden" name="attr_id" value="{$goods_attr.attr_id}" />
+            <input type="hidden" name="id" value="{$attr_meta.id}" />
+            <input type="hidden" name="slug" value="{$goods_attr.slug}" />
+        </div>
+        </td>
+      </tr>
+      </table>
+  </form>
+</div>
+<script type="text/javascript">
+    function count_word(element){
+        var oj = $('#'+element).val();
+        $('#count_'+element).html(oj.length);
+    }
+</script>
+{include file="pagefooter.htm"}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<head>
+<title>{$lang.cp_home}{if $ur_here} - {$ur_here} {/if}</title>
+<meta name="robots" content="noindex, nofollow">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width" />
+<meta name="copyright" content="Ecshopvietnam.com" />
+<link type="image/x-icon" href="{$base_path}/favicon.png" rel="shortcut icon" />
+<link href="{$base_path}/styles/general_mobile.css" rel="stylesheet" type="text/css" />
+<link href="{$base_path}/styles/main_mobile.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$base_path}/js/jquery-1.12.4.min.js" rel="stylesheet" /></script>
+<script type="text/javascript" src="{$base_path}/js/jquery.json-1.3.js" rel="stylesheet" /></script>
+<script type="text/javascript" src="{$base_path}/js/common.js" rel="stylesheet" /></script>
+<script type="text/javascript" src="{$base_path}/js/transport_json.js" rel="stylesheet" /></script>
+<script type="text/javascript" src="{$domain}/js/utils.js" rel="stylesheet" /></script>
+{literal}
+<style>
+  .panel-icloud .panel-right iframe {
+    height: 300px;
+    margin-top: 15px;
+  }
+  .panel-hint{
+    top: 0%;
+  }
+</style>
+{/literal}
+<script>
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+{foreach from=$lang.js_languages key=key item=item}
+var {$key} = "{$item}";
+{/foreach}
+//-->
+
+</script>
+</head>
+<body>
+<section>
+{include file="menu.htm"}
+
+<!--- actios -->
+<h1>
+  {if $action_link}
+  <a class="btn btn-right" href="{$action_link.href}">{$action_link.text}</a>
+  {/if}
+
+  {if $action_link2}
+  <a class="btn" href="{$action_link2.href}">{$action_link2.text}</a>&nbsp;&nbsp;
+  {/if}
+  <div class="breakcrumbs">
+    <span class="action-span1"><a href="index.php?act=main">{$lang.cp_home}</a> </span><span id="search_id" class="action-span1">{if $ur_here}&nbsp;&nbsp;>&nbsp;&nbsp;{$ur_here} {/if}</span>
+  </div>
+  <div style="clear:both"></div>
+</h1>

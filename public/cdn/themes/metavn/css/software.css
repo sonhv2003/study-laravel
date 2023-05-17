@@ -1,0 +1,151 @@
+body {
+    background: #f0f0f0;
+}
+.col_main {
+    float: left;
+    overflow: hidden;
+    width: 65.834%;
+    margin-bottom: 20px;
+}
+.col_sub {
+    float: right;
+    overflow: visible;
+    width: 31.667%;
+    margin-bottom: 20px;
+}
+.col_sub .box:first-child {
+    margin: 0;
+}
+
+.pagination{padding:15px 0 10px;font-size:14px;font-weight:bold;text-align:center;clear:both;display: block}
+.pagination a{color:#999;margin-left:3px;padding:4px 9px;background-color:#eee;border:1px solid #bbb;border-radius:3px}
+.pagination a:hover{color:#666;text-decoration:none;background-color:#ddd;border-color:#999}
+.pagination a.current{color:#ff8c22;background-color:#ffe8ce;border-color:#ff8c22}
+.pagination span{padding:5px 10px}
+.pagination .total{color:#ccc;}
+
+
+.titlehome, h2 {
+    color: #333;
+    display: block;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    overflow: hidden;
+    padding: 10px 0 6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+
+.software_list li {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    clear: both;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom:1px solid #ddd;
+}
+.software_list li>div {
+    float: left;
+    display: inline-block;
+    width: 15%;
+}
+.software_list li .name{
+    width: 70%;
+}
+.software_list li .name .icon {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 20px;
+}
+.software_list li h3 {
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.software_list li p {font-size: 12px;}
+
+.software_list li .guide,
+.software_list li .link{
+    padding: 10px 0;
+}
+.software_list li .guide a,
+.software_list li .link a{
+    color:#288ad6;
+}
+.software_list li .link a{
+    background: #288ad6;
+    color:#fff;
+    padding: 5px 8px;
+    float: right;
+}
+
+
+
+.cat_articles {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 10px;
+}
+.col_sub .cat_articles ul, .cat_articles_box {
+    padding: 0 10px;
+}
+.cat_articles h2{
+    display: block;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 16px;
+
+}
+.cat_articles li {
+    float: left;
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 48%;
+    margin-bottom: 2%;
+}
+.cat_articles li:first-child {
+    float: none;
+    width: 100%;
+    padding-top:0;
+    border-bottom: 1px solid #eee;
+}
+.cat_articles li a {
+    display: block;
+    overflow: hidden;
+    color:#333;
+}
+.cat_articles li a span {color:#666;}
+.cat_articles li img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 125px;
+    margin-bottom: 10px;
+}
+.cat_articles li:first-child img {
+    width: 100%;
+    height: auto;
+    max-height: 215px;
+}
+.cat_articles li h3 {
+    display: block;
+    overflow: hidden;
+    line-height: 1.3em;
+    font-size: 14px;
+    color: #333;
+}
+.cat_articles li:first-child h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.cat_articles li:nth-child(2), .cat_articles li:nth-child(4) {
+    clear: both;
+}
+.cat_articles li:nth-child(3), .cat_articles li:nth-child(5) {
+    float: right;
+}

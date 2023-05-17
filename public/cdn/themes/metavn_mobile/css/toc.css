@@ -1,0 +1,17 @@
+div.wrap_toc {
+    visibility: hidden;
+    background: #fafafa;
+    padding: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.titletoc {font-weight: 700}
+#toc {
+    list-style-type: disc;
+    margin-left: 0;
+    padding-left: 10px;
+}
+#toc ol{list-style-type: lower-alpha;}
+#toc li, #toc ol li {line-height: 24px}

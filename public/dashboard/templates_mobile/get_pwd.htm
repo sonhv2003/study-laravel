@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$lang.cp_home}{if $ur_here} - {$ur_here}{/if}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="styles/general.css" rel="stylesheet" type="text/css" />
+<link href="styles/main.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width" />
+{literal}
+<style type="text/css">
+  .center-wrap .login-panel{
+    width: 350px;
+    margin: 100px auto 20px auto
+  }
+  .center-wrap{
+    width: 94%;
+  }
+  .login-panel input[type=text], .login-panel input[type=password] {
+    text-indent: 0;
+  }
+  .login_shop_name {
+    font-size: 26px;
+    padding: 10px 0;
+    text-align: center;
+    display: block ;
+    font-weight: bold;
+  }
+  @media screen and (max-width:480px) {
+      .center-wrap .login-panel {
+          width: 96%;
+          margin: 60px auto 20px auto
+      }
+  }
+
+</style>
+{/literal}
+{insert_scripts files="../js/utils.js,validator.js"}
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+{foreach from=$lang.js_languages key=key item=item}
+var {$key} = "{$item}";
+{/foreach}
+//-->
+</script>
+
+</head>
+<body>
+
+{if $form_act eq "forget_pwd"}
+<form action="get_password.php" method="post" name="submitAdmin" onsubmit="return validate()">
+  <div class="center-wrap">
+    <div class="login-panel">
+      <div class="login_shop_name">Khôi Phục Password</div>
+      <div class="controls first">
+            <input placeholder="{$lang.enter_admin_pwd}" type="text" name="user_name" maxlength="20" size="30"/>{$lang.require_field}
+      </div>
+      <div class="controls two">
+          <input placeholder="{$lang.email}" type="text" name="email" size="30" />{$lang.require_field}
+      </div>  
+       <div class="controls last">
+         <input type="hidden" name="action" value="get_pwd" />
+         <input type="hidden" name="act" value="forget_pwd" />
+         <input type="submit" value="{$lang.click_button}" class="btn-a button" />
+       </div>
+  </div>
+</div>
+</form>
+{/if}
+{if $form_act eq "reset_pwd"}
+<form action="get_password.php" method="post" name="submitPwd" onsubmit="return validate2()">
+  <div class="center-wrap">
+    <div class="login-panel">
+      <div class="login_shop_name">{$lang.get_newpassword}</div>
+      <div class="controls first">
+          <input pattern="" type="password" name="password" size="30"/>{$lang.require_field}
+      </div>
+      <div class="controls two">
+          <input placeholder="{$lang.confirm_admin_pwd}" type="password" name="confirm_pwd" size="30" />{$lang.require_field}
+      </div>  
+       <div class="controls last">
+         <input type="hidden" name="action" value="reset_pwd" />
+           <input type="hidden" name="act" value="forget_pwd" />
+           <input type="hidden" name="adminid" value="{$adminid}" />
+           <input type="hidden" name="code" value="{$code}" />
+           <input type="submit" value="{$lang.click_button}" class="btn-a button" />
+       </div>
+  </div>
+</div>
+
+</form>
+{/if}
+{literal}
+<script type="text/javascript">
+<!--
+/**
+* 检查表单输入的数据
+*/
+function validate()
+{
+  validator = new Validator("submitAdmin");
+  validator.required("user_name", user_name_empty);
+  validator.required("email", email_empty, 1);
+  validator.isEmail("email", email_error);
+
+  return validator.passed();
+}
+
+function validate2()
+{
+  validator = new Validator("submitPwd");
+  validator.required("password",            admin_pwd_empty);
+  validator.required("confirm_pwd",         confirm_pwd_empty);
+  if (document.forms['submitPwd'].elements['confirm_pwd'].value.length > 0)
+  {
+    validator.eqaul("password","confirm_pwd", both_pwd_error);
+  }
+
+  return validator.passed();
+}
+//-->
+</script>
+{/literal}
+</body>
+</html>

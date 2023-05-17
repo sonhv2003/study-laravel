@@ -1,0 +1,40 @@
+{include file="pageheader.htm"}
+<div class="main-div">
+  <form action="attribute_seo.php"  method="post" name="theForm">
+  <table width="100%" id="general-table">
+      <tr>
+        <td class="label">Đang Sửa</td>
+        <td>
+            URL SEO cho {$goods_attr.cat_name} > {$goods_attr.attr_name} > {$goods_attr.attr_value}
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Attr Slug</td>
+        <td>
+          <input type='text' name='slug' value="{$goods_attr.slug}" size='30' />
+          <p class="notice-span">Vui lòng cân nhắc kỹ trước khi sửa đổi.</p>
+          <input type='hidden' name='old_slug' value="{$goods_attr.slug}" />
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Số thứ tự</td>
+        <td>
+          <input type='text' maxlength="2" name='sort' value="{$goods_attr.sort_filter}" />
+           <p class="notice-span">Sắp xếp thứ tự các giá trị lọc</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+        <div class="button-div">
+            <input type="submit" value="{$lang.button_submit}" class="button"/>
+            <input type="reset" value="{$lang.button_reset}" class="button" />
+            <input type="hidden" name="act" value="{$form_act}" />
+            <input type="hidden" name="attr_id" value="{$goods_attr.attr_id}" />
+        </div>
+        </td>
+      </tr>
+      </table>
+  </form>
+</div>
+
+{include file="pagefooter.htm"}

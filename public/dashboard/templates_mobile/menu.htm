@@ -1,0 +1,54 @@
+<!--- header menu -->
+<header>
+  <div class="header_bar">
+    <div class="navi_bar" id="navi_bar"><i></i><i></i><i></i> <em>x</em></div>
+    <div class="quick_menu">
+         <a href="privilege.php?act=modif" >{$admin_name}</a>
+         <a href="../" target="_blank" class="view_front">{$lang.preview}</a>
+         <a href="index.php?act=clear_cache"  class="fix-submenu">{$lang.clear_cache}</a>
+    </div>
+  </div>
+  <div  class="subnav" id="menu-list">
+        <ul class="navigation menu" id="menu-ul">
+         <li><span><a href="index.php?act=main">Dashboard</a></span></li>
+        {foreach from=$menus item=menu key=k}
+        {if $menu.action}
+          <li><span><a href="{$menu.action}">{$menu.label}></a></span></li>
+        {else}
+          <li key="{$k}" class="icon-{$menu.icon}" data-url="{$menu.url}" data-key="{$menu.key}" name="menu">
+            <span class="title">
+            {$menu.label}
+            {if $menu.children}<span class="toggle_arrow"></span>{/if}
+          </span>
+            {if $menu.children}
+              <ul class="sub_cat none clearfix ">
+              {foreach from=$menu.children key=key item=child}
+                <li><a href="{$child.action}" title="{$child.label|escape}" >{$child.label}</a></li>
+              {/foreach}
+              </ul>
+            
+            {/if}
+          </li>
+        {/if}
+        {/foreach}
+         <li>
+            <span><a href="privilege.php?act=logout">{$lang.signout}</a></span>
+          </li>
+        </ul>
+  </div>
+    <script type="text/javascript">
+        $('#navi_bar').click(function(){
+            $('#menu-list, div.over').toggleClass('dis');
+            $('#navi_bar').toggleClass('actmenu');
+            $('body').toggleClass('fixbody');
+        });
+        $('#menu-ul li').click(function(){
+            $(this).toggleClass('actived');
+            $(this).find('ul.sub_cat').toggleClass('none');
+        });
+
+
+    </script>
+</header>
+<div class="over"></div>
+<!--- End header menu -->

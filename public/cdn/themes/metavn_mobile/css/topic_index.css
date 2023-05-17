@@ -1,0 +1,32 @@
+.prolist {
+    clear: both;
+    display: block;
+    background: #fff;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+}
+.prolist li{display: inline-block;width: 48%;margin: 10px 5px;box-sizing: border-box}
+.prolist li .photo{width: 100%;overflow: hidden; position: relative}
+.prolist li img{width: 100%;height: auto;transition: all .27s ease-out;}
+.prolist li h3 a{font-weight: 600;display: block;}
+.prolist li .time{font-size: 12px;color: #555}
+
+@media screen and (max-width:480px) {
+    .prolist li {
+        width: 47%;
+    }
+}
+
+@media screen and (max-width:414px) {
+    .prolist li {
+        display: block;
+        clear: both;
+        width: 100%;
+    }
+}

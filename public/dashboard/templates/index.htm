@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<head>
+<title>{$lang.cp_home}</title>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="image/x-icon" href="{$base_path}/favicon.png" rel="shortcut icon" />
+<script>
+<!--
+{literal}
+if (window.top != window)
+{
+  window.top.location.href = document.location.href;
+}
+{/literal}
+//-->
+</script>
+  <frameset cols="120, *" framespacing="0" border="0" id="frame-body">
+    <frame src="index.php?act=menu" id="menu-frame" name="menu-frame" frameborder="no" scrolling="yes">
+    <!-- <frame src="index.php?act=drag" id="drag-frame" name="drag-frame" frameborder="no" scrolling="no"> -->
+    <frameset rows="80,*" framespacing="0" border="0">
+      <frame src="index.php?act=top" id="header-frame" name="header-frame" frameborder="no" scrolling="no">
+      <frame src="index.php?act=main" id="main-frame" name="main-frame" frameborder="no" scrolling="yes">
+    </frameset>
+  </frameset>
+
+</head>
+<body>
+</body>
+</html>

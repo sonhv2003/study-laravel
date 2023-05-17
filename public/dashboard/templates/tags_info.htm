@@ -1,0 +1,82 @@
+<!-- $Id: tags_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader_ckeditor.htm"}
+
+<div class="main-div">
+<form method="post" action="tags.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">Tên Thẻ</td>
+    <td><input type="text" name="name" minlength="3" maxlength="20" value="{$tags.name}" />{$lang.require_field}
+    <br><span class="notice-span">Tối thiểu 3 ký tự, tối đa 20 ký tự</span></td>
+  </tr>
+  <tr>
+    <td class="label">Tên Rút Gọn</td>
+    <td><input type="text" name="custom_name" minlength="3" maxlength="20" value="{$tags.custom_name}" />
+    <br><span class="notice-span">Tối thiểu 3 ký tự, tối đa 20 ký tự</span></td>
+  </tr>
+  <tr>
+    <td class="label">Google Index</td>
+    <td>
+    <input type="radio" name="is_index" value="1" {if $tags.is_index eq 1}checked{/if}> Có
+    <input type="radio" name="is_index" value="0" {if $tags.is_index eq 0}checked{/if}> Không
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Nổi Bật</td>
+    <td>
+    <input type="radio" name="is_hot" value="1" {if $tags.is_hot eq 1}checked{/if}> Có
+    <input type="radio" name="is_hot" value="0" {if $tags.is_hot eq 0}checked{/if}> Không
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Meta title</td>
+    <td><input type="text" name="title" maxlength="70" size="60" value="{$tags.title}" />
+    <br><span class="notice-span">Tối đa 70 ký tự</span></td>
+  </tr>
+  <tr>
+    <td class="label">Meta Description</td>
+    <td><textarea  name="description" maxlength="255" cols="60" rows="4">{$tags.description}</textarea></td>
+  </tr>
+  <tr>
+    <td class="label">Mô tả dài</td>
+    <td>
+      <p style="margin-bottom: 10px"><span class="notice-span">Mục đích để tạo thêm liên kết nội bộ, bộ trợ cho SEO Onpage Danh mục</span></p>
+      {$CKeditor_long_desc}
+    </td>
+  </tr>
+
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$tags.id}" />
+      <input type="hidden" name="oldslug" value="{$tags.slug}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+
+document.forms['theForm'].elements['name'].focus();
+
+
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.required("name",  'Thẻ không được để trống');
+    return validator.passed();
+}
+
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}
