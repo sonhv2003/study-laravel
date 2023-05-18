@@ -26,16 +26,18 @@ class ImageController extends Controller
             $filename = $request->file('image')->getClientOriginalName();
             $path = $image->storeAs('public/images/upload', $filename);
 
-            $new_image = new Image();
-            $new_image->link = '/storage/images/upload/' . $filename;
-            $new_image->save();
+            Image::create([
+                'link' => '/storage/images/upload/' . $filename,
+            ]);
         }
         return redirect()->route('images.index');
     }
-
+    
     public function destroy($id)
     {
-        $image = Image::findOrFail($id);        
+        $image = Image::findOrFail($id); 
+        $imagePath = public_path($image->link);
+        if (file_exists($imagePath)) { unlink($imagePath); }
         $image->delete();
         return back();
     }

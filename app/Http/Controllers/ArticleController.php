@@ -7,15 +7,15 @@ class ArticleController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Article::select('id', 'title', 'author', 'category', 'description','image', 'updated_at');
-    
+        $query = Article::select('id', 'title', 'author', 'category', 'description', 'image', 'updated_at');   
         $filters = ['title', 'author', 'category'];
-        foreach($filters as $key => $val)
-        {
-            if($request->has($val)) { $query->where($val, 'like', '%' . $request->$val . '%'); }
+        foreach ($filters as $filter) {
+            if ($request->filled($filter)) {
+                $query->where($filter, 'like', '%' . $request->input($filter) . '%');
+            }
         }
         $news_list = $query->paginate(4);    
-        return view('fontend.articles')->with(compact('news_list')); 
+        return view('fontend.articles')->with('news_list', $news_list);
     }
 
     public function create()
@@ -26,27 +26,24 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'        => 'required|string|max:255',
-            'author'     => 'required|string|max:255',
-            'category'        => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'required|image',
         ]);
-
-        $article = new Article();
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = $request->file('image')->getClientOriginalName();
-            $path = $image->storeAs('public/images/articles', $filename);
-            $article->image = '/storage/images/articles/' . $filename;
-        }
-
-        $article->title = $request->title;
-        $article->author = $request->author;
-        $article->category = $request->category;
-        $article->description = $request->description;
-        $article->save();
-
+    
+        $filename = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('public/images/articles', $filename);
+    
+        Article::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'category' => $request->category,
+            'description' => $request->description,
+            'image' => '/storage/images/articles/' . $filename,
+        ]);
+    
         return redirect()->route('articles.index');
     }
 
@@ -61,10 +58,10 @@ class ArticleController extends Controller
         return view('backend.articles.edit', compact('news'));
     }
 
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $article = Article::findOrFail($id);
-
+    
         $request->validate([
             'title'         => 'required|string|max:255',
             'author'        => 'required|string|max:255',
@@ -72,29 +69,27 @@ class ArticleController extends Controller
             'description'   => 'required|string',
             'image'         => 'nullable|image',
         ]);
-
+    
+        $articleData = $request->only('title', 'author', 'category', 'description');
+    
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = $request->file('image')->getClientOriginalName();
+            $filename = $image->getClientOriginalName();
             $path = $image->storeAs('public/images/articles', $filename);
-            $article->image = '/storage/images/articles/' . $filename;
+            $articleData['image'] = '/storage/images/articles/' . $filename;
         }
-
-        $article->update([
-            'title'         => $request->title,
-            'author'        => $request->author,
-            'category'      => $request->category,
-            'image'         => $article->image,
-            'description'   => $request->description
-        ]);
-
+    
+        $article->update($articleData);
+    
         return redirect()->route('articles.index');
     }
 
     public function destroy($id)
     {
-        $article = Article::findOrFail($id);        
-        $article->delete();
-        return back();
+        $article = Article::findOrFail($id);
+        $imagePath = public_path($article->image);   
+        if (file_exists($imagePath)) { unlink($imagePath); }
+        $article->delete();    
+        return redirect()->route('articles.index');
     }
 }
