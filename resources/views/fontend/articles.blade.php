@@ -54,6 +54,7 @@
       </div>  
     @endforeach 
   </div>
+  <br>
   <div class="row">
     {{ $news_list->appends(request()->input())->links("pagination::bootstrap-4") }}
   </div>

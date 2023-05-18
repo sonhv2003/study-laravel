@@ -63,8 +63,3 @@
 
 @extends('layouts.footer')
 
-<script>
-$(document).ready(function() {
-  var clipboard = new ClipboardJS('.btn');
-});
-</script>
