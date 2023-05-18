@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
  
 class ArticleController extends Controller
 {
@@ -78,18 +80,18 @@ class ArticleController extends Controller
             $path = $image->storeAs('public/images/articles', $filename);
             $articleData['image'] = '/storage/images/articles/' . $filename;
         }
-    
+
         $article->update($articleData);
-    
         return redirect()->route('articles.index');
     }
 
     public function destroy($id)
     {
         $article = Article::findOrFail($id);
-        $imagePath = public_path($article->image);   
-        if (file_exists($imagePath)) { unlink($imagePath); }
+        $imagePath = 'public' . $article->image;
+        $imagePath = str_replace('/storage','',$imagePath);
+        if (Storage::exists($imagePath)) { Storage::delete($imagePath); }
         $article->delete();    
-        return redirect()->route('articles.index');
+        return back();
     }
 }

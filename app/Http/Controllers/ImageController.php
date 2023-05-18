@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -30,14 +31,15 @@ class ImageController extends Controller
                 'link' => '/storage/images/upload/' . $filename,
             ]);
         }
-        return redirect()->route('images.index');
+        return back();
     }
     
     public function destroy($id)
     {
-        $image = Image::findOrFail($id); 
-        $imagePath = public_path($image->link);
-        if (file_exists($imagePath)) { unlink($imagePath); }
+        $image = Image::findOrFail($id);
+        $imagePath = 'public' . $image->link;
+        $imagePath = str_replace('/storage','',$imagePath);
+        if (Storage::exists($imagePath)) { Storage::delete($imagePath); }
         $image->delete();
         return back();
     }
