@@ -13,6 +13,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.4",
+        "maatwebsite/excel": "^3.1",
         "styde/html": "^1.9"
     },
     "require-dev": {

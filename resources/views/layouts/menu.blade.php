@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/images">Hình ảnh</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/excel">Excel</a>
+        </li>
       </ul>
     </div>
   </div>

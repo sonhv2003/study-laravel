@@ -20,6 +20,7 @@ class ArticlesTableSeeder extends Seeder
                 'author' => 'Author 1',
                 'category' => 'Category 1',
                 'description' => 'Content of article 1',
+                'image' => '/storage/images/articles/cocacola.webp',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -28,6 +29,7 @@ class ArticlesTableSeeder extends Seeder
                 'author' => 'Author 2',
                 'category' => 'Category 2',
                 'description' => 'Content of article 2',
+                'image' => '/storage/images/articles/dao.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -36,10 +38,11 @@ class ArticlesTableSeeder extends Seeder
                 'author' => 'Author 3',
                 'category' => 'Category 3',
                 'description' => 'Content of article 3',
+                'image' => '/storage/images/articles/nuocchanh.webp',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ];
-        DB::table('article')->insert($articles);
+        DB::table('articles')->insert($articles);
     }
 }

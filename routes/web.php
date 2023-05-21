@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,9 @@ use App\Http\Controllers\ImageController;
 
 Route::get('/', function () { return view('welcome'); });
 
-Route::get('first-blade-example', function(){
-    return view('fontend.first-blade-example');
-});
-
-Route::get('second-blade-example', function(){
-    $comment = 'Tôi là <span class="label label-success">All Laravel</span>'; 
-    return view('fontend.second-blade-example')->with('comment', $comment);
-});
-
 Route::resource('articles', ArticleController::class);
 Route::resource('images', ImageController::class);
+
+Route::get('fontend.excel',function() { return view('excel'); });
+Route::get('export-user', [UserController::class,'exportUser'])->name('export-user');
+Route::post('import-user', [UserController::class,'importUser'])->name('import-user');
