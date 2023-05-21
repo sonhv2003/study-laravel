@@ -20,6 +20,6 @@ Route::get('/', function () { return view('welcome'); });
 Route::resource('articles', ArticleController::class);
 Route::resource('images', ImageController::class);
 
-Route::get('fontend.excel',function() { return view('excel'); });
+Route::get('excel',function() { return view('fontend.excel'); });
 Route::get('export-user', [UserController::class,'exportUser'])->name('export-user');
 Route::post('import-user', [UserController::class,'importUser'])->name('import-user');
