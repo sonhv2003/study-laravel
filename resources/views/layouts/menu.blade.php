@@ -10,13 +10,13 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/articles">Tin tức</a>
+          <a class="nav-link" href="/articles">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/images">Hình ảnh</a>
+          <a class="nav-link" href="/images">Images</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users">Người dùng</a>
+          <a class="nav-link" href="/users">Users</a>
         </li>
       </ul>
     </div>

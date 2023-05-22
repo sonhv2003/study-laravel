@@ -11,13 +11,13 @@
   <div class="card-footer">
     <div class="row">
       <div class="col-md-3">
-        <a href="{{ route('articles.edit', $news->id) }}" class="btn btn-primary">Sửa</a>
+        <a href="{{ route('articles.edit', $news->id) }}" class="btn btn-primary">Fix</a>
       </div>
       <div class="col-md-3">
         <form action="{{ route('articles.destroy', $news->id) }}" method="POST">
           @csrf 
           @method('DELETE')
-          <button type="submit" class="btn btn-danger"><a>Xóa</a></button>
+          <button type="submit" class="btn btn-danger" title="Delete"><a>Del</a></button>
         </form>
       </div>
       <div class="col-md-6">

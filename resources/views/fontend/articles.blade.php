@@ -1,40 +1,40 @@
 @extends('layouts.default')
 
-@section('title', 'Danh sách tin tức')
+@section('title', 'Articles list')
  
 @section('content')
   <div class="row">
-    <div class="col-md-3">
-      <a href="{{ route('articles.create') }}" class="btn btn-primary">Thêm tin tức</a>
+    <div class="col-md-1">
+      <a href="{{ route('articles.create') }}" class="btn btn-primary">Add</a>
     </div>
     <div class="col-md-9">
       <form action="{{ route('articles.index') }}" method="GET">
         <div class="row input-group">
           <div class="col-md-3">
             @if (isset($_REQUEST['title']))
-              <input type="text" name="title" value="{{ $_REQUEST['title']; }}" class="form-control" placeholder="Tiêu đề" />
+              <input type="text" name="title" value="{{ $_REQUEST['title']; }}" class="form-control" placeholder="Enter title" />
             @else
-              <input type="text" name="title" class="form-control" placeholder="Tiêu đề" />
+              <input type="text" name="title" class="form-control" placeholder="Enter title" />
             @endif
           </div>
           <div class="col-md-3">
             @if (isset($_REQUEST['author']))
-              <input type="text" name="author" value="{{ $_REQUEST['author']; }}" class="form-control" placeholder="Tác giả" />
+              <input type="text" name="author" value="{{ $_REQUEST['author']; }}" class="form-control" placeholder="Enter author" />
             @else
-              <input type="text" name="author" class="form-control" placeholder="Tác giả" />
+              <input type="text" name="author" class="form-control" placeholder="Enter author" />
             @endif
           </div>
           <div class="col-md-3">
             @if (isset($_REQUEST['category']))
-              <input type="text" name="category" value="{{ $_REQUEST['category']; }}" class="form-control" placeholder="Thể loại" />
+              <input type="text" name="category" value="{{ $_REQUEST['category']; }}" class="form-control" placeholder="Enter category" />
             @else
-              <input type="text" name="category" class="form-control" placeholder="Thể loại" />
+              <input type="text" name="category" class="form-control" placeholder="Enter category" />
             @endif
           </div>
           <div class="col-md-3">
             <a href="/articles"><i class="fa-solid fa-x" style="color:red;"></i></a>
             &nbsp&nbsp
-            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+            <button class="btn btn-primary" type="submit">Search</button>
           </div>
         </div>
       </form>

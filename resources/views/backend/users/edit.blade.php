@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Sửa người dùng')
+@section('title', 'Fix user')
 @section('content')
 <body>
 <div class="row">
@@ -17,8 +17,8 @@
             </div>        
             <br>
             <div class="md-3">
-                <button type="submit" class="btn btn-primary">Hoàn thành</button> 
-                <button type="reset" class="btn btn-primary">Nhập lại</button>
+                <button type="submit" class="btn btn-primary">Update/button> 
+                <button type="reset" class="btn btn-primary">Retext</button>
             </div>
         </form>
     </div>

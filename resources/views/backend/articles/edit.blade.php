@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Sửa tin tức')
+@section('title', 'Update article')
 @section('content')
 <body>
 <div class="row">
@@ -24,7 +24,7 @@
                 <input type="varchar" class="form-control" name="description" value="{{ $news->description }}">
             </div>
             <div class="md-3">
-                <label for="image">Thêm hình ảnh:</label>
+                <label for="image">Add image:</label>
                 <input type="file" name="image" class="form-control">
                 @if(isset($news->image))
                     <img src="{{ $news->image }}" width="100px" />
@@ -32,8 +32,8 @@
             </div>
             <br>
             <div class="md-3">
-                <button type="submit" class="btn btn-primary">Cập nhật</button>
-                <button type="reset" class="btn btn-primary">Nhập lại</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="reset" class="btn btn-primary">Retext</button>
             </div>
         </form>
     </div>

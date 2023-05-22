@@ -1,17 +1,17 @@
 @extends('layouts.default')
 
-@section('title', 'Danh sách hình ảnh')
+@section('title', 'Images list')
  
 @section('content')
   <form action="{{ route('images.index') }}" method="GET">
     <div class="row">
       <div class="col-md-3">
-        <input type="text" name="search" class="form-control" placeholder="Tìm kiếm ảnh" />
+        <input type="text" name="search" class="form-control" placeholder="Search image" />
       </div>
       <div class="col-md-3"> 
         <a href="/images"><i class="fa-solid fa-x" style="color:red;"></i></a>
         &nbsp&nbsp
-        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        <button class="btn btn-primary" type="submit">Search</button>
       </div>
     </div>
   </form> 
@@ -46,7 +46,7 @@
                 <form action="{{ route('images.destroy', $image->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-danger">Xóa</button>
+                  <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
               </div>
             </div>

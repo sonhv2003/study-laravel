@@ -1,24 +1,26 @@
 @extends('layouts.default')
 
-@section('title', 'Nhập xuất excel')
+@section('title', 'Users with Excel')
 
 @section('content')
 <div class="container mt-3">
     <div class="mb-3 mt-3">
-        <a href="{{ route('export-user') }}" class="btn btn-primary">Exports</a>
-        <a href="{{ route('users.create') }}" class="btn btn-primary">Thêm dữ liệu</a>
+        <a href="{{ route('export-user') }}" class="btn btn-primary" title="Xuất dữ liệu">Exports</a>
     </div>
-    <form action="{{ route('import-user') }}" enctype="multipart/form-data" method="post">
-        @csrf
-        <div class="row">
-            <div class="col-md-4">            
-                <input type="file" name="file" style="width: 360px;" class="form-control" />
+        <form action="{{ route('import-user') }}" enctype="multipart/form-data" method="post">
+            @csrf
+            <div class="row">
+                <div class="col-md-4">            
+                    <input type="file" name="file" style="width: 360px;" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary" title="Nhập nhanh bằng excel">Import</button>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{ route('users.create') }}" class="btn btn-primary" title="Nhập thủ công">Manual Import</a>
+                </div>
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">Import</button>
-            </div>
-        </div>
-    </form>
+        </form>
     <table class="table table-hover">
         <thead>
             <tr> 
@@ -37,13 +39,13 @@
                 <td>
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Sửa</a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Fix</a>
                         </div>
                         <div class="col-md-2">
                             <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                             @csrf 
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><a>Xóa</a></button>
+                            <button type="submit" class="btn btn-danger"><a>Delete</a></button>
                             </form>
                         </div>
                     </div>
