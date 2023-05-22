@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $query = User::select('id','name','email')->orderByDesc('id');
-        $users_list = $query->paginate('4');
+        $users_list = $query->paginate('10');
         return view('fontend.excel')->with(compact('users_list'));
     }
 
@@ -27,6 +27,6 @@ class UserController extends Controller
     {
         // dd($request->file('file'));die;
         Excel::import(new UsersImport, $request->file('file'));
-        return view('fontend.excel');
+        return redirect()->route('users.index');
     }
 }
