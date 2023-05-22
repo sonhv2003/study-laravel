@@ -18,6 +18,27 @@
             </div>
         </div>
     </form>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($users_list as $user)
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+            </tr>       
+            @endforeach
+        </tbody>
+    </table>
+    <div class="row">
+        {{ $users_list->appends(request()->input())->links("pagination::bootstrap-4") }}
+    </div>                                                
 </div>
 @endsection
 
