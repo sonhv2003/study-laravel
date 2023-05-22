@@ -15,7 +15,7 @@
       </div>
       <div class="col-md-3">
         <form action="{{ route('articles.destroy', $news->id) }}" method="POST">
-          @csrf
+          @csrf 
           @method('DELETE')
           <button type="submit" class="btn btn-danger"><a>Xóa</a></button>
         </form>

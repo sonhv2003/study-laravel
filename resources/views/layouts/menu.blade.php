@@ -16,7 +16,7 @@
           <a class="nav-link" href="/images">Hình ảnh</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/excel">Excel</a>
+          <a class="nav-link" href="/users">Người dùng</a>
         </li>
       </ul>
     </div>
