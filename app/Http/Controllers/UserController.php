@@ -17,6 +17,7 @@ class UserController extends Controller
         $users_list = $query->paginate('10');
         return view('fontend.excel')->with(compact('users_list'));
     }
+
     public function create()
     {
         return view('backend.users.create');
@@ -62,14 +63,13 @@ class UserController extends Controller
         return back();
     }
 
-    public function exportUser()
+    public function exportExcel()
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
 
-    public function importUser(Request $request)
+    public function importExcel(Request $request)
     {
-        // dd($request->file('file'));die;
         Excel::import(new UsersImport, $request->file('file'));
         return redirect()->route('users.index');
     }

@@ -5,16 +5,16 @@
 @section('content')
 <div class="container mt-3">
     <div class="mb-3 mt-3">
-        <a href="{{ route('export-user') }}" class="btn btn-primary" title="Xuất dữ liệu">Exports</a>
+        <a href="{{ route('users.exportExcel') }}" class="btn btn-primary" title="Xuất dữ liệu">Export Excel</a>
     </div>
-        <form action="{{ route('import-user') }}" enctype="multipart/form-data" method="post">
+        <form action="{{ route('users.importExcel') }}" enctype="multipart/form-data" method="post">
             @csrf
             <div class="row">
                 <div class="col-md-4">            
                     <input type="file" name="file" style="width: 360px;" class="form-control" />
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary" title="Nhập nhanh bằng excel">Import</button>
+                    <button type="submit" class="btn btn-primary">Import Excel</button>
                 </div>
                 <div class="col-md-3">
                     <a href="{{ route('users.create') }}" class="btn btn-primary" title="Nhập thủ công">Manual Import</a>
