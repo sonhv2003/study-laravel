@@ -10,6 +10,27 @@
     <title>@yield('title')</title>
 </head>
 <body>
+<style>
+    #container {
+        width: 1000px;
+        margin: 20px auto;
+    }
+    .ck-editor__editable[role="textbox"] {
+        /* editing area */
+        min-height: 200px;
+    }
+    .ck-content .image {
+        /* block images */
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    .pre-label{
+        text-align: right;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+</style>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
     @include('layouts.menu')
     <br>
     <div class="container">

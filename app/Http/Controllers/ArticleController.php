@@ -81,7 +81,7 @@ class ArticleController extends Controller
             $articleData['image'] = '/storage/images/articles/' . $filename;
         }
 
-        $article->update($articleData);
+        $article->update($articleData); 
         return redirect()->route('articles.index');
     }
 

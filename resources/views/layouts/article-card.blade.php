@@ -5,7 +5,7 @@
   <div class="card-body">
     <img src="{{ $image }}" width="120px" height="80" class="center"/>
     <div class="h4 text text-primary" style="text-align:center;">{{ $category }}</div>
-    <div>{{ $description }}</div>
+    <div>{!! $description !!}</div>
     <div class="text text-muted" style="text-align:right;">{{ $author}}</div>
   </div>
   <div class="card-footer">
